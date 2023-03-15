@@ -1,0 +1,9 @@
+{
+    "configurations": [
+        {
+            "type": "cargo build",
+            "name": "Cargo build",
+        },
+
+    ]
+}
