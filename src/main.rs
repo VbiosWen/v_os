@@ -11,7 +11,8 @@ static HELLO: &[u8] = b"Hello World!";
 pub extern "C" fn _start()-> !{
     // 因为链接器会寻找一个名为"_start"的函数，所以这个函数就是入口点
     // 默认命名为'_start'
-    println!("Hello World{}", "!");
+    vga_buffer::print_something();
+//    println!("Hello World{}", "!");
     loop {
 
     }
@@ -19,6 +20,6 @@ pub extern "C" fn _start()-> !{
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> !{
-    println!("{}",info);
+//    println!("{}",info);
     loop {}
 }
