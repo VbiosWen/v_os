@@ -8,3 +8,13 @@ rustflags = ["-C", "link-args=/ENTRY:_start /SUBSYSTEM:console"]
 
 [target.'cfg(target_os = "macos")']
 rustflags = ["-C", "link-args=-e __start -static -nostartfiles"]
+
+[build]
+target = "x86_64-v_os.json" # 使用这个文件作为默认的--target参数
+
+[target.'cfg(target_os = "none")']
+runner = "bootimage runner"
+
+[unstable]
+build-std-features = ["compiler-builtins-mem"] # 启用mem特性
+build-std = ["core","compiler_builtins"] # 不使用rust内置的预编译版本
