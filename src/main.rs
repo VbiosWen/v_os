@@ -4,15 +4,18 @@
 use core::panic::PanicInfo;
 
 mod vga_buffer;
-
 static HELLO: &[u8] = b"Hello World!";
 
 #[no_mangle]
 pub extern "C" fn _start()-> !{
     // 因为链接器会寻找一个名为"_start"的函数，所以这个函数就是入口点
     // 默认命名为'_start'
-    vga_buffer::print_something();
-//    println!("Hello World{}", "!");
+//    vga_buffer::print_something();
+
+//    use core::fmt::Write;
+//    vga_buffer::WRITER.lock().write_str("Hello again").unwrap();
+//    write!(vga_buffer::WRITER.lock(), ", some numbers: {} {}", 42, 1.337).unwrap();
+    println!("Hello World!");
     loop {
 
     }
