@@ -106,7 +106,8 @@ impl Writer {
 
     fn new_line(&mut self) {
         for row in 1..BUFFER_HEIGHT {
-            for column in 0..BUFFER_WITDTH {
+            for column in 0
+            ..BUFFER_WITDTH {
                 let character = self.buffer.chars[row][column].read();
                 self.buffer.chars[row - 1][column].write(character);
             }
