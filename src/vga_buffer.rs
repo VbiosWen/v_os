@@ -143,7 +143,7 @@ pub fn _print(args: fmt::Arguments) {
     use core::fmt::Write;
     WRITER.lock().write_fmt(args).unwrap();
 }
-
+#[allow(dead_code)]
 pub fn print_something() {
     let mut writer = Writer {
         column_position: 0,
@@ -153,4 +153,17 @@ pub fn print_something() {
     writer.write_byte(b'H');
     writer.write_string("ello ");
     writer.write_string("World!");
+}
+
+
+#[test_case]
+fn test_println_simple(){
+    println!("test_println_simple output");
+}
+
+#[test_case]
+fn test_println_many(){
+    for _ in 0..200 {
+        println!("many out put");
+    }
 }
